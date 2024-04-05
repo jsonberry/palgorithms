@@ -1,30 +1,3 @@
-// const oL = [1, 2, 3, 4, 5, 6, 7 ,8, 9, 10];
-
-
-// orderedList.length / 2 = 5
-// find 8
-// orderedList[5]
-// == 5
-// 5 < 8
-// yeah, so "go right"
-// arr = oL.slice(5)
-// [6, 7, 8, 9, 10]
-// Math.ceil(arr / 2)
-// == 8? YAAAAAASS QUUUUEEEENNNNN and we'd be correct
-
-
-// could do recursion
-// could just looooooop
-
-// function binarySearch(list, target) {
-
-// }
-
-
-
-
-
-
 function genList (upper) {
   const arr = []
   for (let index = 0; index < upper; index++) {
@@ -35,8 +8,9 @@ function genList (upper) {
 }
 
 const l =  genList(100000000);
+const target = 7382123;
 
-function binarySearch(list, item) {
+function binarySearch(list, target) {
   let low = 0;
   let high = list.length - 1;
 
@@ -45,13 +19,13 @@ function binarySearch(list, item) {
 
     const guess = list[mid];
 
-    if (guess === item) return guess;
+    if (guess === target) return guess;
 
-    if (guess > item) {
+    if (guess > target) {
       high = mid--;
     }
 
-    if (guess < item) {
+    if (guess < target) {
       low = mid++;
     }
   }
@@ -60,13 +34,13 @@ function binarySearch(list, item) {
 }
 
 console.time('binary')
-const res = binarySearch(l, 432100);
+const res = binarySearch(l, target);
 console.timeEnd('binary');
 
 console.log('------------')
 
 console.time();
-l.find((x) => x === 432100);
+l.find((x) => x === target);
 console.timeEnd();
 
 console.log(res);
