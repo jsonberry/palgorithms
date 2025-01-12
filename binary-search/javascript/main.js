@@ -1,4 +1,4 @@
-function genList (upper) {
+function genList2(upper) {
   const arr = []
   for (let index = 0; index < upper; index++) {
     arr.push(index);
@@ -7,8 +7,16 @@ function genList (upper) {
   return arr;
 }
 
-const l =  genList(100000000);
-const target = 7382123;
+function genList(upper) {
+  return (new Array(upper)).map((_, i) => i);
+}
+
+// const l =  genList(100000000);
+// const target = 7382123;
+
+const l =  genList(100_000_000);
+const target = 200_200;
+
 
 function binarySearch(list, target) {
   let low = 0;
